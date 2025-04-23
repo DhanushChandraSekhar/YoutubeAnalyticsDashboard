@@ -3,7 +3,7 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 # API credentials and channel info
-api_key = 'AIzaSyA6W40IkxZjAO2V434ZyQeGf5bv6znbzHM'
+api_key = 'xxxxxxxxx'
 channel_id = 'UCkw4JCwteGrDHIsyIIKo4tQ'
 
 # Initialize YouTube API client
@@ -71,7 +71,7 @@ df['upload_month'] = df['published_at'].dt.to_period('M').astype(str)
 df.columns = df.columns.str.lower()
 
 # Step 6: Save to PostgreSQL database
-engine = create_engine("postgresql://postgres:apple@localhost:5432/youtube_db")
+engine = create_engine("postgresql://postgres:<password>@localhost:xxxx/youtube_db")
 df.to_sql("video_data", con=engine, if_exists="replace", index=False)
 
 print("Data uploaded successfully to PostgreSQL.")
